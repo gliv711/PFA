@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="208.0" prefWidth="585.0" stylesheets="@../../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PFA.MaterielFiras.GUIsMateriel.SupprimerOutilsController">
+   <children>
+      <Label layoutX="52.0" layoutY="14.0" prefHeight="66.0" prefWidth="494.0" text="   Vous voulez vraiment supprimer cette Outil ?">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnconfirmer" layoutX="424.0" layoutY="149.0" mnemonicParsing="false" onAction="#confirmerButtonSupprimer" prefHeight="33.0" prefWidth="122.0" text="Confirmer" textFill="WHITE" />
+      <Button fx:id="btnannuler" layoutX="251.0" layoutY="149.0" mnemonicParsing="false" onAction="#annuler" prefHeight="33.0" prefWidth="122.0" text="Annuler" textFill="WHITE" />
+   </children>
+</AnchorPane>

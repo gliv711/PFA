@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PFA.GestionEquipe.GUIs.ListeEquipe">
+   <children>
+      <Button fx:id="SupprimerButton" layoutX="640.0" layoutY="647.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Supprimer" />
+      <Button fx:id="ModifierButton" layoutX="852.0" layoutY="647.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Modifier" />
+      <Button fx:id="AjouterButton" layoutX="1061.0" layoutY="647.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Ajouter" />
+      <TreeTableView fx:id="ListeEquip" layoutX="56.0" layoutY="168.0" prefHeight="447.0" prefWidth="1183.0">
+        <columns>
+          <TreeTableColumn fx:id="NomColumn" prefWidth="75.0" text="Nom" />
+          <TreeTableColumn fx:id="ChefColumn" prefWidth="75.0" text="Chef" />
+            <TreeTableColumn fx:id="SpecialiteColumn" prefWidth="75.0" text="Specialite" />
+        </columns>
+         <columnResizePolicy>
+            <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TreeTableView>
+      <TextField fx:id="RechercherTextField" layoutX="56.0" layoutY="113.0" prefHeight="25.0" prefWidth="197.0" promptText="Recherche" />
+      <Button layoutX="253.0" layoutY="113.0" mnemonicParsing="false" text="Rechercher" />
+   </children>
+</AnchorPane>

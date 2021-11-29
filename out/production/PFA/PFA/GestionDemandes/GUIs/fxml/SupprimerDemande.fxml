@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane stylesheets="@../../../resources/style.css" prefHeight="145.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PFA.GestionDemandes.GUIs.SupprimerDemandeController">
+   <children>
+      <Label layoutX="14.0" layoutY="29.0" prefHeight="44.0" prefWidth="327.0" text="Voulez-vous supprimer cet Demande?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button fx:id="confirmer" layoutX="341.0" layoutY="96.0" mnemonicParsing="false" onAction="#confirmer" text="Confirmer" />
+      <Button fx:id="annuler" layoutX="261.0" layoutY="96.0" mnemonicParsing="false" onAction="#annuler" prefHeight="25.0" prefWidth="69.0" text="Anuuler" />
+   </children>
+</AnchorPane>

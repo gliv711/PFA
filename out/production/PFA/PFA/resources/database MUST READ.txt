@@ -1,0 +1,229 @@
+workspace jdid : 
+USERNAME : PFA
+PASSWORD : PFA
+
+PERSONNEL :
+
+            CREATE TABLE  "PERSONNEL"
+               (	"IDPERSONNEL" NUMBER(*,0) NOT NULL ENABLE,
+            	"NOMPERSONNEL" VARCHAR2(20) NOT NULL ENABLE,
+            	"PRENOMPERSONNEL" VARCHAR2(20) NOT NULL ENABLE,
+            	"CINPERSONNEL" NUMBER(*,0) NOT NULL ENABLE,
+            	"DATENAISSANCEPERSONNEL" DATE NOT NULL ENABLE,
+            	"POSTEPERSONNEL" VARCHAR2(100) NOT NULL ENABLE,
+            	"SALAIRE" NUMBER NOT NULL ENABLE,
+            	 PRIMARY KEY ("IDPERSONNEL") ENABLE
+               ) ;
+
+
+    personnel sequence :
+
+                create sequence "PERSONNEL_SEQ"
+                start with 1
+                increment by 1
+                maxvalue 9999999
+                minvalue 1
+                cache 10
+                nocycle
+                noorder
+
+VEHICULE :
+
+            CREATE TABLE  "VEHICULE"
+               (	"IDVEHICULE" NUMBER(*,0) NOT NULL ENABLE,
+            	"NOMVEHICULE" VARCHAR2(20) NOT NULL ENABLE,
+            	"MODELVEHICULE" VARCHAR2(20) NOT NULL ENABLE,
+            	"MATRICULEVEHICULE" NUMBER(*,0) NOT NULL ENABLE,
+            	"PRIX" NUMBER,
+            	"DATEACHAT" DATE,
+            	 PRIMARY KEY ("IDVEHICULE") ENABLE
+               ) ;
+
+    vehicule sequence :
+
+            create sequence "VEHICULE_SEQ"
+            start with 1
+            increment by 1
+            maxvalue 9999999
+            minvalue 1
+            cache 10
+            nocycle
+            noorder
+
+OUTIL :
+
+            CREATE TABLE  "OUTIL"
+               (	"IDOUTIL" NUMBER(*,0) NOT NULL ENABLE,
+            	"NOMOUTIL" VARCHAR2(20) NOT NULL ENABLE,
+            	"QUANTITEOUTIL" NUMBER(*,0) NOT NULL ENABLE,
+            	"CONSUMABLEOUTIL" NUMBER(1,0) NOT NULL ENABLE,
+            	 PRIMARY KEY ("IDOUTIL") ENABLE
+               ) ;
+
+    outil sequence :
+
+            create sequence "OUTIL_SEQ"
+            start with 1
+            increment by 1
+            maxvalue 9999999
+            minvalue 1
+            cache 10
+            nocycle
+            noorder
+
+INTERVENTION :
+
+            CREATE TABLE  "INTERVENTION"
+               (	"IDINTERVENTION" NUMBER(*,0) NOT NULL ENABLE,
+            	"NOMINTERVENTION" VARCHAR2(50) NOT NULL ENABLE,
+            	"DATEDEBUTINTERVENTION" DATE NOT NULL ENABLE,
+            	"DATEFININTERVENTION" DATE NOT NULL ENABLE,
+            	"BUDGET" NUMBER NOT NULL ENABLE,
+            	"ADRESSE" VARCHAR2(80) NOT NULL ENABLE,
+            	 PRIMARY KEY ("IDINTERVENTION") ENABLE
+               ) ;
+
+    intervention sequence :
+
+            create sequence "INTERVENTION_SEQ"
+            start with 1
+            increment by 1
+            maxvalue 9999999
+            minvalue 1
+            cache 10
+            nocycle
+            noorder
+
+COMPTE :
+
+            CREATE TABLE  "COMPTE"
+               (	"IDCOMPTE" NUMBER(*,0) NOT NULL ENABLE,
+            	"IDPERSONNEL" NUMBER(*,0) NOT NULL ENABLE,
+            	"NOMUTILISATEUR" VARCHAR2(50) NOT NULL ENABLE,
+            	"PASSWORD" VARCHAR2(20) NOT NULL ENABLE,
+            	"ROLE" VARCHAR2(50) NOT NULL ENABLE,
+            	 CONSTRAINT "COMPTE_PK" PRIMARY KEY ("IDCOMPTE", "IDPERSONNEL") ENABLE
+               ) ;
+
+
+Doleance:
+         CREATE TABLE  "DOLEANCE"
+            (	"NOM" VARCHAR2(50),
+         	"PRENOM" VARCHAR2(50),
+         	"CIN" NUMBER(*,0),
+         	"ADDRESSE" VARCHAR2(1000),
+         	"IDDOLEANCE" NUMBER(*,0),
+         	"SUJET" VARCHAR2(1000),
+         	"DESCREPTION" VARCHAR2(1000),
+         	"DATEDOLEANCE" DATE,
+         	"NUMTEL" NUMBER NOT NULL ENABLE,
+         	 CONSTRAINT "PK" PRIMARY KEY ("IDDOLEANCE", "CIN") ENABLE
+            ) ;
+
+Demande:
+           CREATE TABLE  "DEM"
+              (	"NOM" VARCHAR2(1000),
+           	"PRENOM" VARCHAR2(1000),
+           	"CIN" NUMBER(*,0),
+           	"ADRESSE" VARCHAR2(1000),
+           	"NUMTEL" NUMBER(*,0),
+           	"ID" NUMBER(*,0),
+           	"DATEDEM" DATE,
+           	"TYPEDEM" VARCHAR2(1000),
+           	"DESCREPTION" VARCHAR2(1000),
+           	 CONSTRAINT "PK4" PRIMARY KEY ("CIN", "ID") ENABLE
+              ) ;
+
+intervention_outil:
+
+            CREATE TABLE  "INTERVENTION_OUTIL"
+               (	"IDOUTIL" NUMBER(*,0) NOT NULL ENABLE,
+            	"CONSUMABLE" NUMBER(*,0) NOT NULL ENABLE,
+            	"IDINTERVENTION" NUMBER(*,0) NOT NULL ENABLE,
+            	"QUANTITE" NUMBER(*,0) NOT NULL ENABLE,
+            	"NOM" VARCHAR2(50) NOT NULL ENABLE,
+            	 PRIMARY KEY ("IDINTERVENTION") DISABLE
+               ) ;ALTER TABLE  "INTERVENTION_OUTIL" ADD CONSTRAINT "FK8" FOREIGN KEY ("IDOUTIL")
+            	  REFERENCES  "OUTIL" ("IDOUTIL") DISABLE;ALTER TABLE  "INTERVENTION_OUTIL" ADD CONSTRAINT "FK9" FOREIGN KEY ("IDINTERVENTION")
+            	  REFERENCES  "INTERVENTION" ("IDINTERVENTION") DISABLE;
+
+intervention_personnel :
+
+             CREATE TABLE  "INTERVENTION_PERSONNEL"
+                (	"IDPERSONNEL" NUMBER(*,0) NOT NULL ENABLE,
+             	"IDINTERVENTION" NUMBER(*,0) NOT NULL ENABLE,
+             	"NOM" VARCHAR2(50) NOT NULL ENABLE,
+             	"PRENOM" VARCHAR2(50) NOT NULL ENABLE,
+             	"POSTE" VARCHAR2(100),
+             	 PRIMARY KEY ("IDINTERVENTION") DISABLE
+                ) ;ALTER TABLE  "INTERVENTION_PERSONNEL" ADD CONSTRAINT "FK1" FOREIGN KEY ("IDPERSONNEL")
+             	  REFERENCES  "PERSONNEL" ("IDPERSONNEL") DISABLE;ALTER TABLE  "INTERVENTION_PERSONNEL" ADD CONSTRAINT "FK2" FOREIGN KEY ("IDINTERVENTION")
+             	  REFERENCES  "INTERVENTION" ("IDINTERVENTION") DISABLE;
+
+intervention_vehicule :
+
+              CREATE TABLE  "INTERVENTION_VEHICULE"
+                 (	"IDVEHICULE" NUMBER(*,0) NOT NULL ENABLE,
+              	"IDINTERVENTION" NUMBER(*,0) NOT NULL ENABLE,
+              	"MODEL" VARCHAR2(50) NOT NULL ENABLE,
+              	"NOM" VARCHAR2(50) NOT NULL ENABLE,
+              	"MATRICULE" VARCHAR2(50) NOT NULL ENABLE,
+              	"PRIX" NUMBER,
+              	"DATEACHAT" DATE NOT NULL ENABLE,
+              	 PRIMARY KEY ("IDINTERVENTION") DISABLE
+                 ) ;ALTER TABLE  "INTERVENTION_VEHICULE" ADD CONSTRAINT "FK4" FOREIGN KEY ("IDINTERVENTION")
+              	  REFERENCES  "INTERVENTION" ("IDINTERVENTION") DISABLE;ALTER TABLE  "INTERVENTION_VEHICULE" ADD CONSTRAINT "FK5" FOREIGN KEY ("IDVEHICULE")
+              	  REFERENCES  "VEHICULE" ("IDVEHICULE") DISABLE;
+
+tache :
+              create table tache (
+              idtache integer primary key not null,
+              nomtache varchar2(20) not null,
+              idpersonnel integer not null,
+              idprojet integer not null,
+              description varchar2(1000));
+
+projet :
+              CREATE TABLE  "PROJET"
+                 (	"IDPROJET" NUMBER(*,0) NOT NULL ENABLE,
+              	"NOMPROJET" VARCHAR2(30) NOT NULL ENABLE,
+              	"DESCRIPTION" VARCHAR2(1000) NOT NULL ENABLE,
+              	"ADRESSE" VARCHAR2(50) NOT NULL ENABLE,
+              	"DATEDEBUT" DATE NOT NULL ENABLE,
+              	"DATEFIN" DATE NOT NULL ENABLE,
+              	"COUT" NUMBER NOT NULL ENABLE,
+              	 PRIMARY KEY ("IDPROJET") ENABLE
+                 ) ;
+projet vehicule :
+              CREATE TABLE  "PROJET_VEHICULE"
+                 (	"IDPROJET" NUMBER(*,0) NOT NULL ENABLE,
+              	"IDVEHICULE" NUMBER(*,0) NOT NULL ENABLE,
+              	 CONSTRAINT "PROJET_VEHICULE_PK" PRIMARY KEY ("IDPROJET", "IDVEHICULE") ENABLE
+                 ) ;ALTER TABLE  "PROJET_VEHICULE" ADD CONSTRAINT "IDPROJET_VEHICULE_FK" FOREIGN KEY ("IDPROJET")
+              	  REFERENCES  "PROJET" ("IDPROJET") ON DELETE CASCADE ENABLE;ALTER TABLE  "PROJET_VEHICULE" ADD CONSTRAINT "IDVEHICULE_PROJET_FK" FOREIGN KEY ("IDVEHICULE")
+              	  REFERENCES  "VEHICULE" ("IDVEHICULE") ON DELETE CASCADE ENABLE;
+projet outil :
+              CREATE TABLE  "PROJET_OUTIL"
+                 (	"IDPROJET" NUMBER(*,0) NOT NULL ENABLE,
+              	"IDOUTIL" NUMBER(*,0) NOT NULL ENABLE,
+              	"QUANTITE" NUMBER(*,0) NOT NULL ENABLE,
+              	 CONSTRAINT "PROJET_OUTIL_PK" PRIMARY KEY ("IDPROJET", "IDOUTIL") ENABLE
+                 ) ;ALTER TABLE  "PROJET_OUTIL" ADD CONSTRAINT "IDOUTIL_PROJET_FK" FOREIGN KEY ("IDOUTIL")
+              	  REFERENCES  "OUTIL" ("IDOUTIL") ON DELETE CASCADE ENABLE;ALTER TABLE  "PROJET_OUTIL" ADD CONSTRAINT "IDPROJET_OUTIL_FK" FOREIGN KEY ("IDPROJET")
+              	  REFERENCES  "PROJET" ("IDPROJET") ON DELETE CASCADE ENABLE;
+projet tache :
+              CREATE TABLE  "PROJET_TACHE"
+                 (	"IDPROJET" NUMBER(*,0) NOT NULL ENABLE,
+              	"IDTACHE" NUMBER(*,0) NOT NULL ENABLE,
+              	 CONSTRAINT "PROJET_TACHE_PK" PRIMARY KEY ("IDPROJET", "IDTACHE") ENABLE
+                 ) ;ALTER TABLE  "PROJET_TACHE" ADD CONSTRAINT "IDPROJET_TACHE_FK" FOREIGN KEY ("IDPROJET")
+              	  REFERENCES  "PROJET" ("IDPROJET") ON DELETE CASCADE ENABLE;ALTER TABLE  "PROJET_TACHE" ADD CONSTRAINT "IDTACHE_PROJET_FK" FOREIGN KEY ("IDTACHE")
+              	  REFERENCES  "TACHE" ("IDTACHE") ON DELETE CASCADE ENABLE;
+projet personnel :
+              REATE TABLE  "PROJET_PERSONNEL"
+                 (	"IDPROJET" NUMBER(*,0) NOT NULL ENABLE,
+              	"IDPERSONNEL" NUMBER(*,0) NOT NULL ENABLE,
+              	 CONSTRAINT "PROJET_PERSONNEL_PK" PRIMARY KEY ("IDPROJET", "IDPERSONNEL") ENABLE
+                 ) ;ALTER TABLE  "PROJET_PERSONNEL" ADD CONSTRAINT "IDPERSONNEL_PROJET_FK" FOREIGN KEY ("IDPERSONNEL")
+              	  REFERENCES  "PERSONNEL" ("IDPERSONNEL") ON DELETE CASCADE ENABLE;ALTER TABLE  "PROJET_PERSONNEL" ADD CONSTRAINT "IDPROJET_PERSONNEL_FK" FOREIGN KEY ("IDPROJET")
+              	  REFERENCES  "PROJET" ("IDPROJET") ON DELETE CASCADE ENABLE;

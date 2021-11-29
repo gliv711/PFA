@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anajouter" stylesheets="@../../../resources/style.css" prefHeight="617.0" prefWidth="539.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PFA.MaterielFiras.GUIsMateriel.ajouterVehiculeController">
+   <children>
+      <Label fx:id="lbmodelajouter" layoutX="88.0" layoutY="177.0" prefHeight="40.0" prefWidth="127.0" text="Model:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbmatriculeajouter" layoutX="88.0" layoutY="235.0" prefHeight="40.0" prefWidth="127.0" text="Matricule:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbnomajouter" layoutX="88.0" layoutY="118.0" prefHeight="40.0" prefWidth="127.0" text="Nom:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfmatricule" layoutX="216.0" layoutY="242.0" prefHeight="26.0" prefWidth="172.0" promptText="4 Chiffres">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="tfnom" layoutX="215.0" layoutY="125.0" prefHeight="26.0" prefWidth="172.0" promptText="Entrer un nom">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="tfmodel" layoutX="215.0" layoutY="182.0" prefHeight="26.0" prefWidth="172.0" promptText="Entrer un model">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></TextField>
+      <Label fx:id="lbnom" layoutX="216.0" layoutY="158.0" prefHeight="18.0" prefWidth="297.0" text="nom invalide svp veillez resseilllez" textFill="RED" visible="false" />
+      <Label fx:id="lbmodel" layoutX="216.0" layoutY="217.0" prefHeight="18.0" prefWidth="297.0" text="model invalide svp veillez resseillez " textFill="RED" visible="false" />
+      <Label fx:id="lbmatricule" layoutX="215.0" layoutY="275.0" prefHeight="18.0" prefWidth="297.0" text="matricule invalide svp veillez resseillez" textFill="RED" visible="false" />
+      <Label layoutX="88.0" layoutY="293.0" prefHeight="40.0" prefWidth="127.0" text="Date d'achat :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePicker" layoutX="216.0" layoutY="301.0" prefHeight="25.0" prefWidth="172.0" />
+      <Label layoutX="88.0" layoutY="357.0" prefHeight="40.0" prefWidth="127.0" text="Prix :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="prixtextField" layoutX="216.0" layoutY="365.0" prefHeight="25.0" prefWidth="172.0" />
+      <Button fx:id="btnajouter" layoutX="364.0" layoutY="559.0" mnemonicParsing="false" onAction="#AjouterButton" prefHeight="33.0" prefWidth="146.0" text="Ajouter" />
+      <Button fx:id="retour" layoutX="197.0" layoutY="559.0" mnemonicParsing="false" onAction="#retour" prefHeight="33.0" prefWidth="146.0" text="Annuler" />
+      <Label fx:id="lbdate" layoutX="217.0" layoutY="333.0" prefHeight="18.0" prefWidth="297.0" text="Date invalide" textFill="RED" visible="false" />
+      <Label fx:id="lbprix" layoutX="217.0" layoutY="397.0" prefHeight="18.0" prefWidth="297.0" text="Prix invalide" textFill="RED" visible="false" />
+   </children>
+</AnchorPane>

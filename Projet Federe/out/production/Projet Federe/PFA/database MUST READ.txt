@@ -1,0 +1,84 @@
+workspace jdid : 
+USERNAME : PFA
+PASSWORD : PFA
+
+PERSONNEL :
+
+            create table personnel(
+            idPersonnel integer primary key not null,
+            nomPersonnel varchar2(20) not null,
+            prenomPersonnel varchar2(20) not null,
+            cinPersonnel integer not null,
+            dateNaissancePersonnel date not null,
+            postePersonnel varchar2(20) not null);
+
+    personnel sequence :
+
+            create sequence "PERSONNEL_SEQ"
+            start with 1
+            increment by 1
+            maxvalue 9999999
+            minvalue 1
+            cache 10
+            nocycle
+            noorder
+
+VEHICULE :
+
+            create table Vehicule (
+            idVehicule integer primary key not null,
+            nomVehicule varchar2(20) not null,
+            modelVehicule varchar2(20) not null,
+            matriculeVehicule integer not null);
+
+    vehicule sequence :
+
+            create sequence "VEHICULE_SEQ"
+            start with 1
+            increment by 1
+            maxvalue 9999999
+            minvalue 1
+            cache 10
+            nocycle
+            noorder
+
+OUTIL :
+
+            create table outil (
+            idOutil integer primary key not null,
+            nomOutil varchar2(20) not null,
+            quantiteOutil integer not null,
+            consumableOutil number(1) not null);
+
+    outil sequence :
+
+            create sequence "OUTIL_SEQ"
+            start with 1
+            increment by 1
+            maxvalue 9999999
+            minvalue 1
+            cache 10
+            nocycle
+            noorder
+
+INTERVENTION :
+
+            create table intervention (
+            idIntervention integer primary key not null,
+            nomIntervention varchar2(50) not null,
+            dateDebutIntervention date not null,
+            dateFinIntervention date not null,
+            budget number not null,
+            adresse varchar2(80) not null);
+
+    intervention sequence :
+
+            create sequence "INTERVENTION_SEQ"
+            start with 1
+            increment by 1
+            maxvalue 9999999
+            minvalue 1
+            cache 10
+            nocycle
+            noorder
+

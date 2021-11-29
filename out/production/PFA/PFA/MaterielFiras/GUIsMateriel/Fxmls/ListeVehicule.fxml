@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anpane" prefHeight="724.0" prefWidth="1150.0" stylesheets="@../../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PFA.MaterielFiras.GUIsMateriel.ListeVehiculeController">
+   <children>
+      <Label fx:id="lbtitle" layoutX="463.0" layoutY="12.0" prefHeight="56.0" prefWidth="224.0" text="Liste des vehicules" underline="true">
+         <font>
+            <Font size="27.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" proportional="false" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.06315789371728897" green="0.06035087630152702" blue="0.06035087630152702" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button fx:id="btnajouter" layoutX="985.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToAjouter" prefHeight="32.0" prefWidth="138.0" text="Ajouter">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnmodifier" disable="true" layoutX="810.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToModifier" prefHeight="32.0" prefWidth="138.0" text="Modifier">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnsupprimer" disable="true" layoutX="633.0" layoutY="656.0" mnemonicParsing="false" onAction="#switchToSupprimer" prefHeight="32.0" prefWidth="138.0" text="Supprimer">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="btnretour" layoutX="28.0" layoutY="27.0" mnemonicParsing="false" onAction="#switchToChoix" prefHeight="26.0" prefWidth="66.0" text="retour" />
+      <TextField fx:id="tfrecherche" layoutX="28.0" layoutY="78.0" prefHeight="32.0" prefWidth="150.0" promptText="rechercher...">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></TextField>
+      <Button fx:id="btnrecherche" layoutX="178.0" layoutY="77.0" mnemonicParsing="false" onAction="#rechercheButton" prefHeight="32.0" prefWidth="99.0" text="Rechercher" />
+      <Button fx:id="btnactualiser" layoutX="1024.0" layoutY="78.0" mnemonicParsing="false" onAction="#RefreshButton" prefHeight="31.0" prefWidth="99.0" text="Actualiser">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <TableView fx:id="tvliste" layoutX="28.0" layoutY="126.0" prefHeight="495.0" prefWidth="1098.0">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="253.59999084472656" text="ID" />
+          <TableColumn fx:id="colnom" prefWidth="260.3999938964844" text="Nom" />
+            <TableColumn fx:id="colmatricule" prefWidth="307.79998779296875" text="Matricule" />
+            <TableColumn fx:id="colmodel" prefWidth="277.800048828125" text="Model" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

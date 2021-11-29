@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane stylesheets="@../../../resources/style.css" prefHeight="667.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PFA.GestionDemandes.GUIs.ModifierDemandeController">
+   <children>
+      <Label layoutX="44.0" layoutY="87.0" prefHeight="8.0" prefWidth="111.0" text="Nom :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="129.0" prefHeight="8.0" prefWidth="111.0" text="Prenom :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="215.0" prefHeight="8.0" prefWidth="111.0" text="Adresse :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="171.0" prefHeight="8.0" prefWidth="111.0" text="CIN :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="347.0" prefHeight="21.0" prefWidth="141.0" text="Type de demande :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="189.0" layoutY="85.0" prefHeight="25.0" prefWidth="273.0" promptText="Entrer votre Nom" />
+      <TextField fx:id="prenom" layoutX="189.0" layoutY="127.0" prefHeight="25.0" prefWidth="273.0" promptText="Entrer votre Prenom" />
+      <TextField fx:id="cin" layoutX="189.0" layoutY="169.0" prefHeight="25.0" prefWidth="273.0" promptText="Entrer votre CIN" />
+      <DatePicker fx:id="date" editable="false" layoutX="189.0" layoutY="295.0" prefHeight="25.0" prefWidth="273.0" promptText="Entrer une Date" />
+      <Button fx:id="modifier" layoutX="342.0" layoutY="629.0" mnemonicParsing="false" onAction="#ModifierDem" prefHeight="25.0" prefWidth="123.0" text="Modifier" />
+      <Button fx:id="retour" layoutX="191.0" layoutY="629.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="123.0" text="Retour" />
+      <Label layoutX="44.0" layoutY="286.0" prefHeight="22.0" prefWidth="132.0" text="Date d'ajout d'une ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="439.0" prefHeight="21.0" prefWidth="141.0" text="Descreption :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="adresse" layoutX="189.0" layoutY="213.0" prefHeight="25.0" prefWidth="273.0" promptText="Entrer votre Adresse" />
+      <Label layoutX="164.0" layoutY="14.0" prefHeight="27.0" prefWidth="189.0" text="Modifier une demande" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="descreption" layoutX="42.0" layoutY="475.0" prefHeight="110.0" prefWidth="441.0" />
+      <Label fx:id="lbtel" layoutX="192.0" layoutY="277.0" prefHeight="18.0" prefWidth="308.0" text="N° de telephone invalide SVP veillez resseillez" textFill="RED" visible="false" />
+      <Label fx:id="lbdate" layoutX="192.0" layoutY="322.0" prefHeight="18.0" prefWidth="308.0" text="Date invalide SVP veillez resseillez" textFill="RED" visible="false" />
+      <Label fx:id="lbadresse" layoutX="192.0" layoutY="237.0" prefHeight="18.0" prefWidth="308.0" text="Adresse invalide SVP veillez resseillez" textFill="RED" visible="false" />
+      <Label fx:id="lbcin" layoutX="192.0" layoutY="195.0" prefHeight="18.0" prefWidth="308.0" text="CIN invalide SVP veillez resseillez" textFill="RED" visible="false" />
+      <Label fx:id="lbprenom" layoutX="192.0" layoutY="151.0" prefHeight="18.0" prefWidth="308.0" text="Prenom invalide SVP veillez resseillez" textFill="RED" visible="false" />
+      <Label fx:id="lbnom" layoutX="192.0" layoutY="109.0" prefHeight="18.0" prefWidth="308.0" text="Nom invalide SVP veillez resseillez" textFill="RED" visible="false" />
+      <Label layoutX="44.0" layoutY="254.0" prefHeight="21.0" prefWidth="141.0" text="N° de Telephone :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tel" layoutX="245.0" layoutY="252.0" prefHeight="26.0" prefWidth="218.0" promptText="Entrer un N° Tel" />
+      <Label fx:id="remplir" layoutX="263.0" layoutY="593.0" prefHeight="22.0" prefWidth="202.0" text="Veillez Remplir tout les champs Svp" textFill="RED" visible="false" />
+      <Label layoutX="44.0" layoutY="309.0" prefHeight="22.0" prefWidth="70.0" text="demande:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="type" layoutX="188.0" layoutY="345.0" prefHeight="26.0" prefWidth="274.0" />
+      <Label fx:id="lbtype" layoutX="192.0" layoutY="369.0" prefHeight="18.0" prefWidth="308.0" text="Type invalide SVP veillez resseillez" textFill="RED" visible="false" />
+      <Label layoutX="43.0" layoutY="400.0" prefHeight="21.0" prefWidth="141.0" text="Id de demande:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="id" layoutX="188.0" layoutY="398.0" prefHeight="25.0" prefWidth="273.0" />
+      <TextField fx:id="tell" layoutX="189.0" layoutY="251.0" prefHeight="26.0" prefWidth="48.0" promptText="Entrer un N° Tel" text="+216" />
+   </children>
+</AnchorPane>
